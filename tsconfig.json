@@ -1,8 +1,12 @@
 {
   "compilerOptions": {
-    "target": "es2021",
+    "target": "es2016",
     "module": "commonjs",
-    "rootDirs": ["src", "jest.config.ts", "tsconfig.json"],
+    "rootDirs": [
+      "src",
+      "jest.config.ts",
+      "tsconfig.json"
+    ],
     "esModuleInterop": true,
     "strictPropertyInitialization": false,
     "experimentalDecorators": true,
@@ -13,7 +17,9 @@
     "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "~/*": ["./src/*"]
+      "~/*": [
+        "./src/*"
+      ]
     }
   }
 }
