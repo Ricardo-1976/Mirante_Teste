@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { container } from "tsyringe";
-import { ListProductUseCase } from "~/modules/products/usecase/ListProduct";
+import { ListProductUseCase } from "~/modules/products/usecase/ListProduct/ListProductsUseCase";
 
 class ListProductController {
   async handle(request: Request, response: Response): Promise<Response> {

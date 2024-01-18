@@ -1,5 +1,6 @@
 import { inject, injectable } from "tsyringe";
 import { IProductRepository } from "../../domin/repository/IProductRepository";
+import { IListProductDTO } from "../../infra/http/dtos/CreateProductDTO";
 import { IDocumentProductModel } from "../../domin/interface/IModelProduct";
 
 @injectable()
@@ -10,9 +11,8 @@ class ListProductUseCase {
     ) {}
 
   async execute(): Promise<IDocumentProductModel[]> {
-    const products = await this.productRepository.list();
-
-    return products;
+    const allproducts = await this.productRepository.list();
+    return allproducts;
  }
 }
 
