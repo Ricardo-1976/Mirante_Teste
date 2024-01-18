@@ -7,44 +7,104 @@
     "contact": {
       "email": "mirante@clapesme.com"
     }
-    },
-    "paths": {
-      "/products": {
-        "post": {
-          "tags": [
-            "Create Product"
-          ],
-          "summary": "Create a new product",
-          "description": "Create a new product",
-          "requestBody": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "name": {
-                      "type": "string"
-                    },
-                    "description": {
-                      "type": "string"
-                    },
-                    "price": {
-                      "type": "number"
-                    },
-                    "type": {
-                      "type": "string"
-                    },
-                    "barcode": {
-                      "type": "number"
-                    }
+  },
+  "paths": {
+    "/products": {
+      "post": {
+        "tags": [
+          "Create Product"
+        ],
+        "summary": "Create a new product",
+        "description": "Create a new product",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
                   },
-                  "example": {
-                    "name": "speed",
-                    "description": "energy", 
-                    "price": 233, 
-                    "type": "drink",
-                    "barcode": "23344"
+                  "description": {
+                    "type": "string"
+                  },
+                  "price": {
+                    "type": "number"
+                  },
+                  "type": {
+                    "type": "string"
+                  },
+                  "barcode": {
+                    "type": "number"
                   }
+                },
+                "example": {
+                  "name": "speed",
+                  "description": "energy",
+                  "price": 233,
+                  "type": "drink",
+                  "barcode": "23344"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Create"
+          },
+          "500": {
+            "description": "User already exists"
+          }
+        }
+      }
+    },
+    "/products/update/{_id}": {
+      "put": {
+        "tags": [
+          "Create Product"
+        ],
+        "summary": "Update a Product",
+        "description": "Update a new Product",
+        "parameters": [
+          {
+            "name": "_id",
+            "in": "path",
+            "description": "Product id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "price": {
+                    "type": "number"
+                  },
+                  "type": {
+                    "type": "string"
+                  },
+                  "barcode": {
+                    "type": "number"
+                  }
+                },
+                "example": {
+                  "name": "speed",
+                  "description": "energy",
+                  "price": 233,
+                  "type": "drink",
+                  "barcode": "23344"
                 }
               }
             }
@@ -54,142 +114,83 @@
               "description": "Create"
             },
             "500": {
-              "description": "User already exists"
+              "description": "Product already exists"
             }
           }
         }
-      },
-      "/products/update/{_id}": {
-        "put": {
-          "tags": [
-            "Update Product"
-          ],
-          "summary": "Update a Product",
-          "description": "Update a new Product",
-          "parameters": [
-            {
-              "name": "_id",
-              "in": "path",
-              "description": "Product id",
-              "required": true,
-              "schema": {
-                "type": "string"
-              }
+      }
+    },
+    "/products/delete/{_id}": {
+      "delete": {
+        "tags": [
+          "Create Product"
+        ],
+        "summary": "Delete a new Product",
+        "description": "Update a new Product",
+        "parameters": [
+          {
+            "name": "_id",
+            "in": "path",
+            "description": "Product _id",
+            "required": true,
+            "schema": {
+              "type": "string"
             }
-          ],
-          "requestBody": {
+          }
+        ]
+      }
+    },
+    "/products/": {
+      "get": {
+        "tags": [
+          "Create Product"
+        ],
+        "summary": "List all products",
+        "responses": {
+          "200": {
+            "description": "Success",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "name": {
-                      "type": "string"
-                    },
-                    "description": {
-                      "type": "string"
-                    },
-                    "price": {
-                      "type": "number"
-                    },
-                    "type": {
-                      "type": "string"
-                    },
-                    "barcode": {
-                      "type": "number"
-                    }
-                  },
-                  "example": {
-                    "name": "speed",
-                    "description": "energy", 
-                    "price": 233, 
-                    "type": "drink",
-                    "barcode": "23344"
-                  }
-                }
-              }
-            },
-            "responses": {
-              "201": {
-                "description": "Create"
-              },
-              "500": {
-                "description": "Product already exists"
-              }
-            }
-          }
-        }
-      },
-      "/products/delete/{_id}": {
-        "delete": {
-          "tags": [
-            "Delete Product"
-          ],
-          "summary": "Delete a new Product",
-          "description": "Update a new Product",
-          "parameters": [
-            {
-              "name": "_id",
-              "in": "path",
-              "description": "Product _id",
-              "required": true,
-              "schema": {
-                "type": "string"
-              }
-            }
-          ]
-        }
-      },
-      "/products/": {
-        "get": {
-          "tags": [
-            "List all products"
-          ],
-          "summary": "List all products",
-          "responses": {
-            "200": {
-              "description": "Success",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "array"
-                  }
+                  "type": "array"
                 }
               }
             }
           }
         }
-      },
-      "/products/{id}": {
-        "get": {
-          "tags": [
-            "List all products"
-          ],
-          "summary": "List a products",
-          "responses": {
-            "200": {
-              "description": "Success",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "array"
-                  }
+      }
+    },
+    "/products/{_id}": {
+      "get": {
+        "tags": [
+          "Create Product"
+        ],
+        "summary": "List a products",
+        "description": "List a Product",
+        "parameters": [
+          {
+            "name": "_id",
+            "in": "path",
+            "description": "Product _id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array"
                 }
               }
             }
-          },
-          "parameters": [
-            {
-              "name": "_id",
-              "in": "path",
-              "description": "products _id",
-              "required": true,
-              "schema": {
-                "type": "string"
-              }
-            }
-          ]
+          }
         }
       }
     }
   }
+}
