@@ -17,7 +17,7 @@ class ProductRepository implements IProductRepository {
   async findByCodeBar(barcode: number): Promise<IDocumentProductModel | null> {
     return ProductModel.findOne({ barcode });
   }
-  async update(data: IDocumentProductModel): Promise<void> {
+  async update(data: IUpdateProductDTO): Promise<void> {
    await ProductModel.findByIdAndUpdate(data._id, (data))
   }
 

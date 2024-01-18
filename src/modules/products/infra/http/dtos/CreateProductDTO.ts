@@ -27,4 +27,4 @@ interface IUpdateProductDTO {
   updatedAt?: Date | null | undefined;
 }
 
-export { ICreateProductDTO, IListProductDTO, IUpdateProductDTO };
+export { ICreateProductDTO , IListProductDTO, IUpdateProductDTO };

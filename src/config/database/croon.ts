@@ -2,9 +2,7 @@ import mongoose from "mongoose";
 
 async function cronn() {
   try {
-    await mongoose.connect(
-      "mongodb+srv://SejaBest:n6NCQalgOvZTIuuY@bestpro-development.otw64m5.mongodb.net/testMirantes",
-      );
+    await mongoose.connect(String(process.env.DATABASE_URL));
   } catch (error) {
     console.log(`Error: ${error}`);
   }
